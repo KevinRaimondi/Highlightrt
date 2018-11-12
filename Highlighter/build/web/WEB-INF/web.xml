@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>cadUsuario</servlet-name>
+        <servlet-class>serv.cadUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>logarUsuario</servlet-name>
+        <servlet-class>serv.logarUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>livroGetSet</servlet-name>
+        <servlet-class>connect.livroGetSet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>livroSelect</servlet-name>
+        <servlet-class>serv.livroSelect</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cadUsuario</servlet-name>
+        <url-pattern>/cadUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logarUsuario</servlet-name>
+        <url-pattern>/logarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>livroGetSet</servlet-name>
+        <url-pattern>/livroGetSet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>livroSelect</servlet-name>
+        <url-pattern>/livroSelect</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

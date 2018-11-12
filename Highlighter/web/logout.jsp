@@ -1,0 +1,7 @@
+<% 
+//destroi as sessions iniciadas para realização do logoff:::::
+session.invalidate();
+//redireciona apos destroir as sessions para index.......FUNÇAO DE REDIRECIONAMENTO
+response.sendRedirect("index.jsp");
+
+%>

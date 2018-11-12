@@ -1,0 +1,35 @@
+.formulario{
+	width:464px;
+	height:303px;
+        padding:20px;
+	/*border:5px solid #666666;
+	border-radius:10px;*/
+	float:left;
+	margin-left:40px;
+	margin-top:30px;
+       
+}
+
+.formulario label{
+    width:80px;
+    height:40px;
+    display:inline-table;
+    text-align:right;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size:14px;
+    color: #666666;
+}
+.formulario input[type=text],input[type=password],input[type=submit]{
+    height:30px !important;
+    padding:8px;
+    border-radius:5px;
+    border:1px solid #666666;
+    color: #666666;
+}
+.formulario input[type=submit]{
+    width:400px;
+    margin-left:20px;
+    font-weight: bold;
+}
+
