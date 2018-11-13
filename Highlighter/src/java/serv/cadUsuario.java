@@ -53,7 +53,7 @@ public class cadUsuario extends HttpServlet {
                 
             }
             senha=hexString.toString();
-             String sql="INSERT INTO usuario (nomeCompleto,email,senha) VALUES('"+nome+"','"+email+"','"+senha+"')";
+             String sql="INSERT INTO usuario (nome,email,senha) VALUES('"+nome+"','"+email+"','"+senha+"')";
             
             Connection con = conexao.conectar();
             Statement st = con.createStatement();

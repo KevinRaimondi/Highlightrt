@@ -61,7 +61,7 @@ public class logarUsuario extends HttpServlet {
             Connection con = conexao.conectar();
             Statement st = con.createStatement();
             //realiza a execução   da instrução SQL
-            st.execute(sql);
+            st.executeQuery(sql);
             ResultSet resultado;
              resultado= st.getResultSet();
             if( resultado.next()){

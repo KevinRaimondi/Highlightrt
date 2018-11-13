@@ -23,22 +23,23 @@ public class livroSelect extends HttpServlet {
 public ArrayList<livroGetSet> ListarLivro() throws SQLException{
     ArrayList<livroGetSet> ListarLivro = new ArrayList<livroGetSet>();
        try{
-    String sql="SELECT*FROM disco ORDER BY RAND() LIMIT 11";
+    String sql="SELECT*FROM livro ORDER BY RAND() LIMIT 11";
     Connection con = conexao.conectar();
-    Statement stDisco = con.createStatement();
-    ResultSet rsDisco = stDisco.executeQuery(sql);
+    Statement stLivro = con.createStatement();
+    ResultSet rsLivro = stLivro.executeQuery(sql);
     
-    while(rsDisco.next()){
-        livroGetSet disco= new livroGetSet();
-        disco.setId_disco(rsDisco.getInt("id_disco"));
-                disco.setTitulo_disco(rsDisco.getString("titulo_disco"));
-                disco.setCapa_disco(rsDisco.getString("capa_disco"));
-                disco.setRelease_disco(rsDisco.getString("release_disco"));
-                disco.setPreco_disco(rsDisco.getFloat("preco_disco"));
-                disco.setId_banda(rsDisco.getInt("id_banda"));
-                ListarLivro.add(disco);
+    
+    while(rsLivro.next()){
+                livroGetSet livro= new livroGetSet();
+                livro.setnomeLivro(rsLivro.getString("nomeLivro"));
+                livro.setcategoria(rsLivro.getString("cetegoria"));
+                livro.setdescricao(rsLivro.getString("descrição"));
+                livro.setautor(rsLivro.getString("autor"));
+                livro.setimagem(rsLivro.getString("imagem"));
+                livro.setId(rsLivro.getInt("id_livro"));
+                ListarLivro.add(livro);
     }
-    rsDisco.close();
+    rsLivro.close();
     con.close();
     
 }

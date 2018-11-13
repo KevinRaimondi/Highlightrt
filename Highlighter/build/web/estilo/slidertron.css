@@ -4,7 +4,7 @@
     height: 297px;
     margin: 17px auto;
     padding: 0px 0px 39px 39px;
-    background: url(images/caro.jpg) no-repeat left top;
+    background: url(../images/caro.jpg) no-repeat left top;
 }
 
 #foobar {
@@ -85,7 +85,7 @@
 	display: block;
 	width: 77px;
 	height: 206px;
-	background: url(images/esquerda.png) no-repeat 30px 130px;
+	background: url(../images/esquerda.png) no-repeat 30px 130px;
 	text-decoration: none;
 }
 
@@ -99,6 +99,6 @@
 	outline: none;
 	width: 87px;
 	height: 206px;
-	background: url(images/direita.png) no-repeat 10px 130px;
+	background: url(../images/direita.png) no-repeat 10px 130px;
 	text-decoration: none;
 }

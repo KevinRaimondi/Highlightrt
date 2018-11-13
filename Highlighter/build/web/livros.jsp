@@ -11,12 +11,10 @@
 
 
 
-
-
 <%
     NumberFormat z = NumberFormat.getCurrencyInstance();
     livroSelect select = new livroSelect();
-    ArrayList<livroGetSet> ListaDisco = select.ListarLivro();
+    ArrayList<livroGetSet> ListarLivro = select.ListarLivro();
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -50,7 +48,7 @@
                         
                 <%
                     int n=1;
-                    for(livroGetSet disco : ListaDisco) {
+                    for(livroGetSet livro : ListarLivro) {
                         if((n % 4 == 0) ){
                 %>
                             <div class="item last">
@@ -63,19 +61,19 @@
                 <%
                     }
 
-                    String titulo = disco.getTitulo_disco();
-                    if(titulo.length() > 20){
-                        titulo = String.format("%.20s", disco.getTitulo_disco()) + "...";
+                    String nomeLivro = livro.getnomeLivro();
+                    if(nomeLivro.length() > 20){
+                        nomeLivro = String.format("%.20s", livro.getnomeLivro()) + "...";
                     }
                 %>
                             <figure>
-                                <img src="img/<%= disco.getCapa_disco() %>"/>
+                                <img src="img/<%=livro.getimagem() %>"/>
                                 <figcaption>
                                     <h2>
-                                            <a class="titulocd" href="cd.jsp?id=<%= disco.getId_disco() %>"><%=titulo %></a>
+                                            <a class="titulocd" href="cd.jsp?id=<%=livro.getId() %>"><%=nomeLivro %></a>
                                     </h2>
                                     
-                                    <a href="cd.jsp?id=<%= disco.getId_disco() %>" class="btn detalhes">Detalhes</a>
+                                    <a href="cd.jsp?id=<%=livro.getdescricao() %>" class="btn detalhes">Detalhes</a>
                                    
                                 </figcaption>
                             </figure>
