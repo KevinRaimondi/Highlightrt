@@ -16,6 +16,18 @@
         <servlet-name>livroSelect</servlet-name>
         <servlet-class>serv.livroSelect</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>discoGet</servlet-name>
+        <servlet-class>connect.discoGet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>discoSelect</servlet-name>
+        <servlet-class>serv.discoSelect</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>livroDesc</servlet-name>
+        <servlet-class>serv.livroDesc</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>cadUsuario</servlet-name>
         <url-pattern>/cadUsuario</url-pattern>
@@ -31,6 +43,18 @@
     <servlet-mapping>
         <servlet-name>livroSelect</servlet-name>
         <url-pattern>/livroSelect</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>discoGet</servlet-name>
+        <url-pattern>/discoGet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>discoSelect</servlet-name>
+        <url-pattern>/discoSelect</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>livroDesc</servlet-name>
+        <url-pattern>/livroDesc</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

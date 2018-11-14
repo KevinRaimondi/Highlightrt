@@ -175,7 +175,7 @@ nav ul li a:hover{
     overflow:hidden;
 	height:250px;
 	width:250px;
-	border: 1px solid #E4AA0B;
+	border: 1px solid #666666;
 	border-radius:10px;
 	float:left;
 	margin:15px 30px 15px 0px;
@@ -233,10 +233,10 @@ nav ul li a:hover{
 	border:1px solid #A52A2A;	
 }
 .item figure figcaption  .detalhes{
-	background:#E4AA0B;
+	background:#666666;
 	margin-right:0;
-	color:#A52A2A;
-	border:1px solid #A52A2A;
+	color:#666666;
+	border:1px solid #666666;
 }
 .item figure figcaption {
     top:0;

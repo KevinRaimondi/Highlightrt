@@ -1,35 +1,25 @@
-<%-- 
-    Document   : teste
-    Created on : 09/11/2018, 00:14:02
-    Author     : Karoline
---%><%@page import="serv.livroSelect"%>
-<%@page import="connect.livroGetSet"%>
-<%@ page language="java" %>
-
-<%@page import="java.util.ArrayList"%>
 <%@page import="java.text.NumberFormat"%>
-
+<%@ page language="java" %>
+<%@page import="connect.discoGet" %>
+<%@page import="java.util.ArrayList" %>
+<%@page import="serv.discoSelect" %>
 
 
 <%
-    
-
-    
-    
     NumberFormat z = NumberFormat.getCurrencyInstance();
-    livroSelect select = new livroSelect();
-    ArrayList<livroGetSet> ListarLivro = select.ListarLivro();
+    discoSelect dao1 = new discoSelect();
+    ArrayList<discoGet> ListaDisco = dao1.ListarDisco();
 %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Musics</title>
+        <meta charset="UTF-8" />
         <link rel="stylesheet" type="text/css" href="estilo/estilos.css" />
         <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript">
-             function animar(){
+            function animar(){
                 $("#carousel ul").animate({marginLeft:-1100, },1000,function(){
                     $(this).find("li:last").after($(this).find("li:first"));
                     $(this).css({marginLeft:0});
@@ -45,14 +35,12 @@
                 });
             });
         </script>
-        <title>JSP Page</title>
     </head>
     <body>
-        <h1>Livros:</h1>
-                        
+       
                 <%
                     int n=1;
-                    for(livroGetSet livro : ListarLivro) {
+                    for(discoGet disco : ListaDisco) {
                         if((n % 4 == 0) ){
                 %>
                             <div class="item last">
@@ -65,22 +53,20 @@
                 <%
                     }
 
-                    String nomeLivro = livro.getnomeLivro();
-                    if(nomeLivro.length() > 20){
-                        nomeLivro = String.format("%.20s", livro.getnomeLivro()) + "...";
+                    String titulo = disco.getTitulo_disco();
+                    if(titulo.length() > 20){
+                        titulo = String.format("%.20s", disco.getTitulo_disco()) + "...";
                     }
                 %>
                             <figure>
-                                <img src="images/<%=livro.getimagem() %>"/>
-                                
+                                <img src="img/<%= disco.getCapa_disco() %>"/>
                                 <figcaption>
                                     <h2>
-                                            <a class="titulocd" href="livroDescricao.jsp?id=<%=livro.getId() %>"><%=nomeLivro %></a>
+                                            <a class="titulocd" href="cd.jsp?id=<%= disco.getId_disco() %>"><%=titulo %></a>
                                     </h2>
-                                    
-                                            <h3><%= String.format("%.30s",livro.getautor())+ "..."%></h3>
-                                            <h4><%= "GENERO:" +String.format("%.30s",livro.getcategoria())%></h4>
-                                            <span><%= String.format("%.100s",livro.getdescricao())+ "..."%></span>
+                                    <span class="btn preco"><%=z.format(disco.getPreco_disco()) %></span>
+                                    <a href="cd.jsp?id=<%= disco.getId_disco() %>" class="btn detalhes">Detalhes</a>
+                                    <a href="javascript:void();" onclick="javascript:adicionarprod(<%= disco.getId_disco() %>,<%= disco.getPreco_disco() %>);" class="btn comprar">Comprar</a>
                                 </figcaption>
                             </figure>
                         </div>
@@ -89,5 +75,23 @@
                     }
                 %>
             </div>
+        
+            
+        </div>
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

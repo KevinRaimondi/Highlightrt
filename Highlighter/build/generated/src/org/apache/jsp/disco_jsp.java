@@ -3,12 +3,12 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import serv.livroSelect;
-import connect.livroGetSet;
-import java.util.ArrayList;
 import java.text.NumberFormat;
+import connect.discoGet;
+import java.util.ArrayList;
+import serv.discoSelect;
 
-public final class livros_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class disco_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -34,7 +34,7 @@ public final class livros_jsp extends org.apache.jasper.runtime.HttpJspBase
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html;charset=UTF-8");
+      response.setContentType("text/html");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -52,28 +52,22 @@ public final class livros_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
 
-    
-
-    
-    
     NumberFormat z = NumberFormat.getCurrencyInstance();
-    livroSelect select = new livroSelect();
-    ArrayList<livroGetSet> ListarLivro = select.ListarLivro();
+    discoSelect dao1 = new discoSelect();
+    ArrayList<discoGet> ListaDisco = dao1.ListarDisco();
 
       out.write("\n");
       out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
+      out.write("<!doctype html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <title>Musics</title>\n");
+      out.write("        <meta charset=\"UTF-8\" />\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"estilo/estilos.css\" />\n");
       out.write("        <script type=\"text/javascript\" src=\"assets/js/jquery-3.3.1.min.js\"></script>\n");
       out.write("        <script type=\"text/javascript\">\n");
-      out.write("             function animar(){\n");
+      out.write("            function animar(){\n");
       out.write("                $(\"#carousel ul\").animate({marginLeft:-1100, },1000,function(){\n");
       out.write("                    $(this).find(\"li:last\").after($(this).find(\"li:first\"));\n");
       out.write("                    $(this).css({marginLeft:0});\n");
@@ -89,15 +83,13 @@ public final class livros_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                });\n");
       out.write("            });\n");
       out.write("        </script>\n");
-      out.write("        <title>JSP Page</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        <h1>Livros:</h1>\n");
-      out.write("                        \n");
+      out.write("       \n");
       out.write("                ");
 
                     int n=1;
-                    for(livroGetSet livro : ListarLivro) {
+                    for(discoGet disco : ListaDisco) {
                         if((n % 4 == 0) ){
                 
       out.write("\n");
@@ -114,36 +106,36 @@ public final class livros_jsp extends org.apache.jasper.runtime.HttpJspBase
 
                     }
 
-                    String nomeLivro = livro.getnomeLivro();
-                    if(nomeLivro.length() > 20){
-                        nomeLivro = String.format("%.20s", livro.getnomeLivro()) + "...";
+                    String titulo = disco.getTitulo_disco();
+                    if(titulo.length() > 20){
+                        titulo = String.format("%.20s", disco.getTitulo_disco()) + "...";
                     }
                 
       out.write("\n");
       out.write("                            <figure>\n");
-      out.write("                                <img src=\"images/");
-      out.print(livro.getimagem() );
+      out.write("                                <img src=\"img/");
+      out.print( disco.getCapa_disco() );
       out.write("\"/>\n");
-      out.write("                                \n");
       out.write("                                <figcaption>\n");
       out.write("                                    <h2>\n");
-      out.write("                                            <a class=\"titulocd\" href=\"livroDescricao.jsp?id=");
-      out.print(livro.getId() );
+      out.write("                                            <a class=\"titulocd\" href=\"cd.jsp?id=");
+      out.print( disco.getId_disco() );
       out.write('"');
       out.write('>');
-      out.print(nomeLivro );
+      out.print(titulo );
       out.write("</a>\n");
       out.write("                                    </h2>\n");
-      out.write("                                    \n");
-      out.write("                                            <h3>");
-      out.print( String.format("%.30s",livro.getautor())+ "...");
-      out.write("</h3>\n");
-      out.write("                                            <h4>");
-      out.print( "GENERO:" +String.format("%.30s",livro.getcategoria()));
-      out.write("</h4>\n");
-      out.write("                                            <span>");
-      out.print( String.format("%.100s",livro.getdescricao())+ "...");
+      out.write("                                    <span class=\"btn preco\">");
+      out.print(z.format(disco.getPreco_disco()) );
       out.write("</span>\n");
+      out.write("                                    <a href=\"cd.jsp?id=");
+      out.print( disco.getId_disco() );
+      out.write("\" class=\"btn detalhes\">Detalhes</a>\n");
+      out.write("                                    <a href=\"javascript:void();\" onclick=\"javascript:adicionarprod(");
+      out.print( disco.getId_disco() );
+      out.write(',');
+      out.print( disco.getPreco_disco() );
+      out.write(");\" class=\"btn comprar\">Comprar</a>\n");
       out.write("                                </figcaption>\n");
       out.write("                            </figure>\n");
       out.write("                        </div>\n");
@@ -154,8 +146,26 @@ public final class livros_jsp extends org.apache.jasper.runtime.HttpJspBase
                 
       out.write("\n");
       out.write("            </div>\n");
+      out.write("        \n");
+      out.write("            \n");
+      out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

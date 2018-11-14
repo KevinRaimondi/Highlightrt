@@ -16,7 +16,7 @@ import java.sql.DriverManager;
 public class conexao {
     public static Connection conectar() throws Exception {
         Class.forName("com.mysql.jdbc.Driver");
-                return DriverManager.getConnection("jdbc:mysql://localhost/phpmusics","root","");
+                return DriverManager.getConnection("jdbc:mysql://localhost/high","root","");
 
        // return DriverManager.getConnection("jdbc:mysql:highlighter.mysql.uhserver.com", "highlighter", "Arucard91745743*");
     }

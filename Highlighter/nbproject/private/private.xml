@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Karoline/Desktop/Highlighter/src/java/serv/cadUsuario.java</file>
-            <file>file:/C:/Users/Karoline/Desktop/Highlighter/web/logado.jsp</file>
-            <file>file:/C:/Users/Karoline/Desktop/Highlighter/web/index.jsp</file>
-            <file>file:/C:/Users/Karoline/Desktop/Highlighter/src/java/connect/conexao.java</file>
-            <file>file:/C:/Users/Karoline/Desktop/Highlighter/src/java/serv/logarUsuario.java</file>
+            <file>file:/C:/Users/Karoline/Desktop/Highlighter/web/livros.jsp</file>
+            <file>file:/C:/Users/Karoline/Desktop/Highlighter/src/java/serv/livroSelect.java</file>
+            <file>file:/C:/Users/Karoline/Desktop/Highlighter/src/java/serv/livroDesc.java</file>
+            <file>file:/C:/Users/Karoline/Desktop/Highlighter/src/java/connect/livroGetSet.java</file>
+            <file>file:/C:/Users/Karoline/Desktop/Highlighter/web/livroDescricao.jsp</file>
         </group>
     </open-files>
 </project-private>

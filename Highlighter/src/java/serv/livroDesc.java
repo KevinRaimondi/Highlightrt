@@ -14,16 +14,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 /**
  *
  * @author Karoline
  */
-public class livroSelect extends HttpServlet {
-public ArrayList<livroGetSet> ListarLivro() throws SQLException{
+public class livroDesc extends HttpServlet {
+public ArrayList<livroGetSet> ListarDescricao(int Id) throws SQLException{
     ArrayList<livroGetSet> ListarLivro = new ArrayList<livroGetSet>();
        try{
-    String sql="SELECT*FROM livro ORDER BY RAND() LIMIT 11";
+    String sql="SELECT * FROM livro WHERE id = " + Id;
     Connection con = conexao.conectar();
     Statement stLivro = con.createStatement();
     ResultSet rsLivro = stLivro.executeQuery(sql);

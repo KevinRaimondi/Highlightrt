@@ -12,6 +12,10 @@
 
 
 <%
+    
+
+    
+    
     NumberFormat z = NumberFormat.getCurrencyInstance();
     livroSelect select = new livroSelect();
     ArrayList<livroGetSet> ListarLivro = select.ListarLivro();
@@ -44,7 +48,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Livros:</h1>
                         
                 <%
                     int n=1;
@@ -67,14 +71,16 @@
                     }
                 %>
                             <figure>
-                                <img src="img/<%=livro.getimagem() %>"/>
+                                <img src="images/<%=livro.getimagem() %>"/>
+                                
                                 <figcaption>
                                     <h2>
-                                            <a class="titulocd" href="cd.jsp?id=<%=livro.getId() %>"><%=nomeLivro %></a>
+                                            <a class="titulocd" href="livroDescricao.jsp?id=<%=livro.getId() %>"><%=nomeLivro %></a>
                                     </h2>
                                     
-                                    <a href="cd.jsp?id=<%=livro.getdescricao() %>" class="btn detalhes">Detalhes</a>
-                                   
+                                            <h3><%= String.format("%.30s",livro.getautor())+ "..."%></h3>
+                                            <h4><%= "GENERO:" +String.format("%.30s",livro.getcategoria())%></h4>
+                                            <span><%= String.format("%.100s",livro.getdescricao())+ "..."%></span>
                                 </figcaption>
                             </figure>
                         </div>
